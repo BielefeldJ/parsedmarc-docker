@@ -37,7 +37,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./elasticsearch/data/:/usr/share/elasticsearch/data/:z
+      - elasticsearch_data:/usr/share/elasticsearch/data/:z
     restart: "unless-stopped"
     networks:
       - parsedmarc-network
@@ -60,6 +60,10 @@ services:
     networks:
       - parsedmarc-network
     depends_on:
+      - elasticsearch
+
+volumes:
+  elasticsearch_data:
       - elasticsearch
 
   nginx:
