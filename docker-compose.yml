@@ -6,7 +6,6 @@ services:
     build:
       context: ./parsedmarc/
       dockerfile: ./Dockerfile
-    tty: true
     volumes: []
       #- /path/to/GeoIP:/usr/share/GeoIP
     environment:
@@ -67,7 +66,6 @@ services:
     container_name: "nginx"
     image: nginx:alpine
     restart: unless-stopped
-    tty: true
     ports:
       - "80:80"
       - "443:443"
