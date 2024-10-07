@@ -75,11 +75,7 @@ services:
       - parsedmarc-network
     depends_on:
       - elasticsearch
-
-volumes:
-  elasticsearch_data:
-      - elasticsearch
-
+    
   nginx:
     container_name: "nginx"
     image: nginx:alpine
