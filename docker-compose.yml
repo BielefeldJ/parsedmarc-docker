@@ -3,9 +3,10 @@ version: '3.4'
 services:
   parsedmarc:
     container_name: "parsedmarc"
-    build:
-      context: ./parsedmarc/
-      dockerfile: ./Dockerfile
+    image: bielefeldj/parsedmarc
+    #build:
+    #  context: ./parsedmarc/
+    #  dockerfile: ./Dockerfile
     volumes:
       - geoipupdate_data:/usr/share/GeoIP
     environment:
