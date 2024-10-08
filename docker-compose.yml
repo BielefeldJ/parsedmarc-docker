@@ -73,6 +73,7 @@ services:
     restart: unless-stopped
     networks:
       - parsedmarc-network
+      - caddyproxy_proxynetwork
     depends_on:
       - elasticsearch 
 
@@ -80,6 +81,9 @@ networks:
     parsedmarc-network:
       driver: bridge
     geoipupdate:
+    caddyproxy_proxynetwork:
+      external: true
+
 
 volumes:
   elasticsearch_data:
