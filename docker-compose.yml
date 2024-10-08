@@ -74,21 +74,7 @@ services:
     networks:
       - parsedmarc-network
     depends_on:
-      - elasticsearch
-    
-  nginx:
-    container_name: "nginx"
-    image: nginx:alpine
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/:z
-      - ./nginx/ssl/:/etc/nginx/ssl/:z
-      - ./nginx/htpasswd:/etc/nginx/htpasswd:z
-    networks:
-      - parsedmarc-network
+      - elasticsearch 
 
 networks:
     parsedmarc-network:
