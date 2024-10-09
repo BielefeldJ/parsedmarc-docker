@@ -21,7 +21,8 @@ services:
     networks:
       - parsedmarc-network
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
 
   geoipupdate:
     container_name: geoipupdate
@@ -74,7 +75,8 @@ services:
       - parsedmarc-network
       - caddyproxy_proxynetwork
     depends_on:
-      - elasticsearch 
+      elasticsearch:
+        condition: service_healthy
 
 networks:
     parsedmarc-network:
@@ -82,7 +84,6 @@ networks:
     geoipupdate:
     caddyproxy_proxynetwork:
       external: true
-
 
 volumes:
   elasticsearch_data:
