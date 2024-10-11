@@ -1,10 +1,9 @@
-FROM docker.io/library/pypy:latest
+FROM python:alpine
 
-RUN apt-get update \
-    && apt-get install -y libxml2-dev libxslt-dev python3-dev \
-    && pip install --no-cache-dir parsedmarc \
-    && rm -rf /root/.cache/ \
-    && rm -rf /var/lib/{apt,dpkg}/
+RUN apk update && apk upgrade --available
+RUN apk add libxml2-dev libxslt-dev 
+RUN pip install --no-cache-dir parsedmarc 
+
 
 COPY ./entrypoint.py /
 RUN chmod +x /entrypoint.py
